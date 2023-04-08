@@ -1,6 +1,13 @@
+using IP_Web.Models;
+using IP_Web.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.Configure<CareBandDbSettings>(
+    builder.Configuration.GetSection("CareBandDb"));
+builder.Services.AddSingleton<LimitParamService>();
+builder.Services.AddSingleton<TestService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
