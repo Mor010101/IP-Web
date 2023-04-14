@@ -63,3 +63,4 @@ C:\Users\Moro\source\repos\IP-Web\IP-Web\obj\Debug\net6.0\refint\IP-Web.dll
 C:\Users\Moro\source\repos\IP-Web\IP-Web\obj\Debug\net6.0\IP-Web.pdb
 C:\Users\Moro\source\repos\IP-Web\IP-Web\obj\Debug\net6.0\IP-Web.genruntimeconfig.cache
 C:\Users\Moro\source\repos\IP-Web\IP-Web\obj\Debug\net6.0\ref\IP-Web.dll
+C:\Users\Moro\source\repos\IP-Web\IP-Web\bin\Debug\net6.0\AutoMapper.dll

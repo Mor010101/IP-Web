@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+eCe7MnWXjjurwws2t8wRYHhFaiiv3/IctLm/ep0INR2zUBPiHPIYVlIDQPVkYgvIjgqcXx2rz/aXhjjJMUX/w==",
+  "dgSpecHash": "BbGOKPh6rXyhw7IrpMiqAqGde/J/aDiEK6dizxdt3srHCXe2v+n68es9XTXGcoA+Ssuq59Lu/w180r92LQG9nw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Moro\\source\\repos\\IP-Web\\IP-Web\\IP-Web.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Moro\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Moro\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Moro\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Moro\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
