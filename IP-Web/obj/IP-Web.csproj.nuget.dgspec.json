@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Moro\\source\\repos\\IP-Web\\IP-Web\\IP-Web.csproj": {}
+    "C:\\Users\\Moro\\Source\\Repos\\IP-Web\\IP-Web\\IP-Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Moro\\source\\repos\\IP-Web\\IP-Web\\IP-Web.csproj": {
+    "C:\\Users\\Moro\\Source\\Repos\\IP-Web\\IP-Web\\IP-Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Moro\\source\\repos\\IP-Web\\IP-Web\\IP-Web.csproj",
+        "projectUniqueName": "C:\\Users\\Moro\\Source\\Repos\\IP-Web\\IP-Web\\IP-Web.csproj",
         "projectName": "IP-Web",
-        "projectPath": "C:\\Users\\Moro\\source\\repos\\IP-Web\\IP-Web\\IP-Web.csproj",
+        "projectPath": "C:\\Users\\Moro\\Source\\Repos\\IP-Web\\IP-Web\\IP-Web.csproj",
         "packagesPath": "C:\\Users\\Moro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Moro\\source\\repos\\IP-Web\\IP-Web\\obj\\",
+        "outputPath": "C:\\Users\\Moro\\Source\\Repos\\IP-Web\\IP-Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
