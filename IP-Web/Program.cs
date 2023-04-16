@@ -13,6 +13,7 @@ builder.Services.Configure<CareBandDbSettings>(
 builder.Services.AddSingleton<LimitParamService>();
 builder.Services.AddSingleton<DateVitaleService>();
 builder.Services.AddSingleton<TestService>();
+builder.Services.AddSingleton<RecomandareService>();
 
 //define automapper config
 var mapperConfig = new MapperConfiguration(mc =>
