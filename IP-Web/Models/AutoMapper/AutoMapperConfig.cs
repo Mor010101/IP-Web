@@ -8,6 +8,8 @@ public class AutoMapperProfile : Profile
     public AutoMapperProfile() 
     {
         CreateMap<LimitParamDTO, LimitParam>()
-            .ForMember(dest => dest.Id, opt => opt.Ignore()); ;
+            .ForMember(dest => dest.Id, opt => opt.Ignore());
+        CreateMap<DateVitaleDTO, DateVitale>()
+            .ForMember(dest => dest.Id, opt => opt.Ignore());
     }
 }
