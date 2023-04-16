@@ -5,5 +5,6 @@ public class CareBandDbSettings
     public string ConnectionString { get; set; } = null!;
     public string DatabaseName { get; set; } = null!;
     public string LimitParamCollectionName { get; set; } = null!;
+    public string DateVitaleCollectionName { get; set; } = null!;
     public string TestCollectionName { get; set; } = null!;
 }

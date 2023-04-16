@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<CareBandDbSettings>(
     builder.Configuration.GetSection("CareBandDb"));
 builder.Services.AddSingleton<LimitParamService>();
+builder.Services.AddSingleton<DateVitaleService>();
 builder.Services.AddSingleton<TestService>();
 
 //define automapper config
