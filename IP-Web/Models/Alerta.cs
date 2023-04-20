@@ -16,5 +16,6 @@ public class Alerta
 
     public bool is_active { get; set; }
 
-    public LimitParam id_limit_param { get; set; }
+    [BsonRepresentation(BsonType.ObjectId)]
+    public List<string?> IdLimitParam { get; set; }
 }

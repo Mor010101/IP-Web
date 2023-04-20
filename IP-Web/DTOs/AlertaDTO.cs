@@ -1,4 +1,6 @@
 ﻿using IP_Web.Models;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
 
 namespace IP_Web.DTOs;
 
@@ -10,5 +12,7 @@ public class AlertaDTO
 
     public bool is_active { get; set; }
 
-    public LimitParam id_limit_param { get; set; }
+
+    [BsonRepresentation(BsonType.ObjectId)]
+    public List<string?> IdLimitParam { get; set; }
 }
