@@ -7,6 +7,7 @@ public class CareBandDbSettings
     public string LimitParamCollectionName { get; set; } = null!;
     public string DateVitaleCollectionName { get; set; } = null!;
     public string AlertaCollectionName { get; set; } = null!;
+    public string AdminCollectionName { get; set; } = null!;
     public string TestCollectionName { get; set; } = null!;
     public string RecomandareCollectionName { get; set; } = null!;
     public string UserCollectionName { get; set; } = null!;

@@ -13,6 +13,7 @@ builder.Services.Configure<CareBandDbSettings>(
 builder.Services.AddSingleton<LimitParamService>();
 builder.Services.AddSingleton<DateVitaleService>();
 builder.Services.AddSingleton<AlertaService>();
+builder.Services.AddSingleton<AdminService>();
 builder.Services.AddSingleton<TestService>();
 builder.Services.AddSingleton<RecomandareService>();
 builder.Services.AddSingleton<UserService>();
