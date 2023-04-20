@@ -21,7 +21,7 @@ public class RecomandareService
             careBandDbSettings.Value.DatabaseName);
         _recomandareCollection = mongoDatabase.GetCollection<Recomandare>(
             careBandDbSettings.Value.RecomandareCollectionName);
-        mapper = mapper;
+        _mapper = mapper;
     }
 
     public async Task<List<Recomandare>> GetAsync() =>
