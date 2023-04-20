@@ -15,4 +15,6 @@ public class AlertaDTO
 
     [BsonRepresentation(BsonType.ObjectId)]
     public List<string?> IdLimitParam { get; set; }
+
+    public string? idPacient { get; set; }
 }

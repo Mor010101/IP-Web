@@ -42,4 +42,7 @@ public class RecomandareService
     }
     public async Task RemoveAsync(string id) =>
         await _recomandareCollection.DeleteOneAsync(x => x.Id == id);
+
+    public async Task<List<Recomandare>> GetAllForPacientAsync(string id) =>
+    await _recomandareCollection.Find(x => x.idPacient == id).ToListAsync();
 }

@@ -18,4 +18,7 @@ public class Alerta
 
     [BsonRepresentation(BsonType.ObjectId)]
     public List<string?> IdLimitParam { get; set; }
+
+    [BsonRepresentation(BsonType.ObjectId)]
+    public string? idPacient { get; set; }
 }

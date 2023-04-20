@@ -15,6 +15,7 @@ public class UserDTO
     public string alergii { get; set; }
     public string istoric_medical { get; set; }
     public string consultatii_cardio { get; set; }
+    public string? idAdmin { get; set; }
 
 
 }
