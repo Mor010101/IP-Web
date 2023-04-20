@@ -11,5 +11,7 @@ public class AutoMapperProfile : Profile
             .ForMember(dest => dest.Id, opt => opt.Ignore());
         CreateMap<DateVitaleDTO, DateVitale>()
             .ForMember(dest => dest.Id, opt => opt.Ignore());
+        CreateMap<AlertaDTO, Alerta>()
+            .ForMember(dest => dest.Id, opt => opt.Ignore());
     }
 }
