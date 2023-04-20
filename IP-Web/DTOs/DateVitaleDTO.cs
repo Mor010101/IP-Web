@@ -6,4 +6,5 @@ public class DateVitaleDTO
     public int temperatura { get; set; }
     public int puls { get; set; }
     public int ecg { get; set; }
+    public string? idPacient { get; set; }
 }

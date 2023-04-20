@@ -41,4 +41,8 @@ public class UserService
     }
     public async Task RemoveAsync(string id) =>
         await _userCollection.DeleteOneAsync(x => x.Id == id);
+
+    public async Task<List<User>> GetAllForAdminAsync(string id) =>
+    await _userCollection.Find(x => x.idAdmin == id).ToListAsync();
+
 }

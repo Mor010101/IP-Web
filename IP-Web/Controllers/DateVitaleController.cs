@@ -33,4 +33,9 @@ public class DateVitaleController : ControllerBase
     [HttpDelete("{id}")]
     public async Task Delete(string id) =>
         await _dateVitaleService.RemoveAsync(id);
+
+    [HttpGet("/api/DateVitale/ForPacient{id}")]
+    public async Task<List<DateVitale>> GetAllForPacient(string id) =>
+    await _dateVitaleService.GetAllForPacientAsync(id);
+
 }

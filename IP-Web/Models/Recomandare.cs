@@ -13,4 +13,7 @@ public class Recomandare
     public DateTime start { get; set; }
     public DateTime end { get; set; }
 
+    [BsonRepresentation(BsonType.ObjectId)]
+    public string? idPacient { get; set; }
+
 }

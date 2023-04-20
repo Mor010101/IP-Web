@@ -12,4 +12,7 @@ public class DateVitale
     public int temperatura { get; set; }
     public int puls { get; set; }
     public int ecg { get; set; }
+
+    [BsonRepresentation(BsonType.ObjectId)]
+    public string? idPacient { get; set; }
 }
