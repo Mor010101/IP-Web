@@ -21,7 +21,7 @@ public class AlertaService
         var mongoDatabase = mongoClient.GetDatabase(
             careBandDbSettings.Value.DatabaseName);
         _alertaCollection = mongoDatabase.GetCollection<Alerta>(
-            careBandDbSettings.Value.LimitParamCollectionName);
+            careBandDbSettings.Value.AlertaCollectionName);
         _mapper = mapper;
     }
 
