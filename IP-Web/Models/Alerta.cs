@@ -15,4 +15,7 @@ public class Alerta
     public DateTime time_stamp { get; set; }
 
     public bool is_active { get; set; }
+
+    [BsonRepresentation(BsonType.ObjectId)]
+    public List<string?> IdLimitParam { get; set; }
 }

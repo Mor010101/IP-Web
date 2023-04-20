@@ -15,5 +15,9 @@ public class AutoMapperProfile : Profile
             .ForMember(dest => dest.Id, opt => opt.Ignore());
         CreateMap<AdminDTO, Admin>()
             .ForMember(dest => dest.Id, opt => opt.Ignore());
+        CreateMap<RecomandareDTO, Recomandare>()
+            .ForMember(dest => dest.Id, opt => opt.Ignore());
+        CreateMap<UserDTO, User>()
+            .ForMember(dest => dest.Id, opt => opt.Ignore());
     }
 }
