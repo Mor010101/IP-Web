@@ -42,7 +42,14 @@ public class UserService
     public async Task RemoveAsync(string id) =>
         await _userCollection.DeleteOneAsync(x => x.Id == id);
 
-    public async Task<List<User>> GetAllForAdminAsync(string id) =>
-    await _userCollection.Find(x => x.idAdmin == id).ToListAsync();
+    public async Task<List<UserTableDTO>> GetAllForAdminAsync(string id)
+    {
+        var result = await _userCollection.Find(x => x.idAdmin == id).ToListAsync();
+        List<UserTableDTO> userTableDTOs = new List<UserTableDTO>();
+
+        result.ForEach(x => userTableDTOs.Add(_mapper.Map<UserTableDTO>(x)));
+
+        return userTableDTOs;
+    }
 
 }

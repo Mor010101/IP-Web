@@ -39,6 +39,7 @@ public class UserController
         await _userService.RemoveAsync(id);
 
     [HttpGet("/api/User/ForAdmin{id}")]
-    public async Task<List<User>> GetAllForAdmin(string id) =>
+    public async Task<List<UserTableDTO>> GetAllForAdmin(string id) =>
     await _userService.GetAllForAdminAsync(id);
+
 }
