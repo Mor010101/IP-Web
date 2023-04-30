@@ -11,3 +11,4 @@ export { RecomandareDto } from './models/recomandare-dto';
 export { Test } from './models/test';
 export { User } from './models/user';
 export { UserDto } from './models/user-dto';
+export { UserTableDto } from './models/user-table-dto';

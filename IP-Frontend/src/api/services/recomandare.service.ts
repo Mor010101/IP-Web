@@ -381,4 +381,105 @@ export class RecomandareService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation apiRecomandareForPacientIdGet
+   */
+  static readonly ApiRecomandareForPacientIdGetPath = '/api/Recomandare/ForPacient{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiRecomandareForPacientIdGet$Plain()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiRecomandareForPacientIdGet$Plain$Response(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Array<Recomandare>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, RecomandareService.ApiRecomandareForPacientIdGetPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<Recomandare>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `apiRecomandareForPacientIdGet$Plain$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiRecomandareForPacientIdGet$Plain(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<Array<Recomandare>> {
+
+    return this.apiRecomandareForPacientIdGet$Plain$Response(params,context).pipe(
+      map((r: StrictHttpResponse<Array<Recomandare>>) => r.body as Array<Recomandare>)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiRecomandareForPacientIdGet$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiRecomandareForPacientIdGet$Json$Response(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Array<Recomandare>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, RecomandareService.ApiRecomandareForPacientIdGetPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<Recomandare>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `apiRecomandareForPacientIdGet$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiRecomandareForPacientIdGet$Json(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<Array<Recomandare>> {
+
+    return this.apiRecomandareForPacientIdGet$Json$Response(params,context).pipe(
+      map((r: StrictHttpResponse<Array<Recomandare>>) => r.body as Array<Recomandare>)
+    );
+  }
+
 }

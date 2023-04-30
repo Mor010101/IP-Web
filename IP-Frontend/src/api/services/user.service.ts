@@ -11,6 +11,7 @@ import { map, filter } from 'rxjs/operators';
 
 import { User } from '../models/user';
 import { UserDto } from '../models/user-dto';
+import { UserTableDto } from '../models/user-table-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -378,6 +379,107 @@ export class UserService extends BaseService {
 
     return this.apiUserIdDelete$Response(params,context).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
+    );
+  }
+
+  /**
+   * Path part for operation apiUserForAdminIdGet
+   */
+  static readonly ApiUserForAdminIdGetPath = '/api/User/ForAdmin{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiUserForAdminIdGet$Plain()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiUserForAdminIdGet$Plain$Response(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Array<UserTableDto>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, UserService.ApiUserForAdminIdGetPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<UserTableDto>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `apiUserForAdminIdGet$Plain$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiUserForAdminIdGet$Plain(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<Array<UserTableDto>> {
+
+    return this.apiUserForAdminIdGet$Plain$Response(params,context).pipe(
+      map((r: StrictHttpResponse<Array<UserTableDto>>) => r.body as Array<UserTableDto>)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiUserForAdminIdGet$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiUserForAdminIdGet$Json$Response(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Array<UserTableDto>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, UserService.ApiUserForAdminIdGetPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<UserTableDto>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `apiUserForAdminIdGet$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiUserForAdminIdGet$Json(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<Array<UserTableDto>> {
+
+    return this.apiUserForAdminIdGet$Json$Response(params,context).pipe(
+      map((r: StrictHttpResponse<Array<UserTableDto>>) => r.body as Array<UserTableDto>)
     );
   }
 

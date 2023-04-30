@@ -6,6 +6,7 @@ export interface User {
   consultatii_cardio?: null | string;
   email?: null | string;
   id?: null | string;
+  idAdmin?: null | string;
   istoric_medical?: null | string;
   loc_de_munca?: null | string;
   nr_strada?: number;
@@ -15,4 +16,5 @@ export interface User {
   prenume?: null | string;
   profesie?: null | string;
   strada?: null | string;
+  varsta?: number;
 }

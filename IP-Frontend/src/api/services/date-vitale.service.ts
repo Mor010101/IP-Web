@@ -381,4 +381,105 @@ export class DateVitaleService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation apiDateVitaleForPacientIdGet
+   */
+  static readonly ApiDateVitaleForPacientIdGetPath = '/api/DateVitale/ForPacient{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiDateVitaleForPacientIdGet$Plain()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiDateVitaleForPacientIdGet$Plain$Response(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Array<DateVitale>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, DateVitaleService.ApiDateVitaleForPacientIdGetPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<DateVitale>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `apiDateVitaleForPacientIdGet$Plain$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiDateVitaleForPacientIdGet$Plain(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<Array<DateVitale>> {
+
+    return this.apiDateVitaleForPacientIdGet$Plain$Response(params,context).pipe(
+      map((r: StrictHttpResponse<Array<DateVitale>>) => r.body as Array<DateVitale>)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiDateVitaleForPacientIdGet$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiDateVitaleForPacientIdGet$Json$Response(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Array<DateVitale>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, DateVitaleService.ApiDateVitaleForPacientIdGetPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<DateVitale>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `apiDateVitaleForPacientIdGet$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiDateVitaleForPacientIdGet$Json(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<Array<DateVitale>> {
+
+    return this.apiDateVitaleForPacientIdGet$Json$Response(params,context).pipe(
+      map((r: StrictHttpResponse<Array<DateVitale>>) => r.body as Array<DateVitale>)
+    );
+  }
+
 }

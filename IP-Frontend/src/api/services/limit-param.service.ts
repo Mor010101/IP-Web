@@ -381,4 +381,105 @@ export class LimitParamService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation apiLimitParamForAlertaIdGet
+   */
+  static readonly ApiLimitParamForAlertaIdGetPath = '/api/LimitParam/ForAlerta{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiLimitParamForAlertaIdGet$Plain()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiLimitParamForAlertaIdGet$Plain$Response(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Array<LimitParam>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, LimitParamService.ApiLimitParamForAlertaIdGetPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<LimitParam>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `apiLimitParamForAlertaIdGet$Plain$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiLimitParamForAlertaIdGet$Plain(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<Array<LimitParam>> {
+
+    return this.apiLimitParamForAlertaIdGet$Plain$Response(params,context).pipe(
+      map((r: StrictHttpResponse<Array<LimitParam>>) => r.body as Array<LimitParam>)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiLimitParamForAlertaIdGet$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiLimitParamForAlertaIdGet$Json$Response(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Array<LimitParam>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, LimitParamService.ApiLimitParamForAlertaIdGetPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<LimitParam>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `apiLimitParamForAlertaIdGet$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiLimitParamForAlertaIdGet$Json(params: {
+    id: string;
+  },
+  context?: HttpContext
+
+): Observable<Array<LimitParam>> {
+
+    return this.apiLimitParamForAlertaIdGet$Json$Response(params,context).pipe(
+      map((r: StrictHttpResponse<Array<LimitParam>>) => r.body as Array<LimitParam>)
+    );
+  }
+
 }
