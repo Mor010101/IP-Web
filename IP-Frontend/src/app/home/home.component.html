@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center">
+  <div class="container m-4 rounded bg-light">
+    <table class="table table-striped rounded">
+      <thead>
+        <tr>
+          <th scope="col">Nume</th>
+          <th scope="col">Prenume</th>
+          <th scope="col">CNP</th>
+          <th scope="col">Varsta</th>
+          <th scope="col">Numar telefon</th>
+          <th scope="col">Email</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td class="align-middle">{{ user.nume }}</td>
+          <td class="align-middle">{{ user.prenume }}</td>
+          <td class="align-middle">{{ user.cnp }}</td>
+          <td class="align-middle">{{ user.varsta }}</td>
+          <td class="align-middle">{{ user.nr_tel }}</td>
+          <td class="align-middle">{{ user.email }}</td>
+          <td class="align-middle">
+            <button class="btn text-primary" (click)="goToPage(user.id)">VIEW</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
