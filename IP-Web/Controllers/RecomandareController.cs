@@ -36,4 +36,9 @@ public class RecomandareController: ControllerBase
     [HttpDelete("{id}")]
     public async Task Delete(string id) =>
         await _recomandareService.RemoveAsync(id);
+
+    [HttpGet("/api/Recomandare/ForPacient{id}")]
+    public async Task<List<Recomandare>> GetAllForPacient(string id) =>
+    await _recomandareService.GetAllForPacientAsync(id);
+
 }

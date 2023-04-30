@@ -36,4 +36,9 @@ public class LimitParamController : ControllerBase
     [HttpDelete("{id}")]
     public async Task Delete(string id) =>
         await _limitParamService.RemoveAsync(id);
+
+    [HttpGet("/api/LimitParam/ForAlerta{id}")]
+    public async Task<List<LimitParam>> GetAllForAlerta(string id) =>
+        await _limitParamService.GetAllForAlertaAsync(id);
+        
 }

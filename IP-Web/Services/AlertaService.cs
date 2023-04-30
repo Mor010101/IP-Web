@@ -43,4 +43,7 @@ public class AlertaService
     }
     public async Task RemoveAsync(string id) =>
         await _alertaCollection.DeleteOneAsync(x => x.Id == id);
+
+    public async Task<List<Alerta>> GetAllForPacientAsync(string id) =>
+        await _alertaCollection.Find(x => x.idPacient == id).ToListAsync();
 }

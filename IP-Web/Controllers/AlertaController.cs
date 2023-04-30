@@ -33,4 +33,8 @@ public class AlertaController : ControllerBase
     [HttpDelete("{id}")]
     public async Task Delete(string id) =>
         await _alertaService.RemoveAsync(id);
+
+    [HttpGet("/api/Alerta/ForPacient{id}")]
+    public async Task<List<Alerta>> GetAllForPacient(string id) =>
+    await _alertaService.GetAllForPacientAsync(id);
 }

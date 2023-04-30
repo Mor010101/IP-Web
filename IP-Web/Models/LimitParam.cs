@@ -12,4 +12,8 @@ public class LimitParam
     public int bpmLimit { get; set; }
     public int tempLimit { get; set; }
 
+    [BsonRepresentation(BsonType.ObjectId)]
+    public string ?idAlerta { get; set; }
+
+
 }

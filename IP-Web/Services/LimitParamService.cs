@@ -42,4 +42,9 @@ public class LimitParamService
     }
     public async Task RemoveAsync(string id) => 
         await _limitParamCollection.DeleteOneAsync(x => x.Id == id);
+
+    public async Task<List<LimitParam>> GetAllForAlertaAsync(string id)=>
+        await _limitParamCollection.Find(x=> x.idAlerta == id).ToListAsync();    
+
+
 }

@@ -42,4 +42,7 @@ public class DateVitaleService
     }
     public async Task RemoveAsync(string id) =>
         await _dateVitaleCollection.DeleteOneAsync(x => x.Id == id);
+
+    public async Task<List<DateVitale>> GetAllForPacientAsync(string id) =>
+    await _dateVitaleCollection.Find(x => x.idPacient == id).ToListAsync();
 }
