@@ -19,5 +19,8 @@ public class AutoMapperProfile : Profile
             .ForMember(dest => dest.Id, opt => opt.Ignore());
         CreateMap<UserDTO, User>()
             .ForMember(dest => dest.Id, opt => opt.Ignore());
+        CreateMap<UserTableDTO, User>();
+        CreateMap<User, UserTableDTO>();
+
     }
 }
