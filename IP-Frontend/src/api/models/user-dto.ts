@@ -5,7 +5,6 @@ export interface UserDto {
   cnp?: null | string;
   consultatii_cardio?: null | string;
   email?: null | string;
-  idAdmin?: null | string;
   istoric_medical?: null | string;
   loc_de_munca?: null | string;
   nr_strada?: number;

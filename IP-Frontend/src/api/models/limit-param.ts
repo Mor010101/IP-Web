@@ -3,6 +3,5 @@
 export interface LimitParam {
   bpmLimit?: number;
   id?: null | string;
-  idAlerta?: null | string;
   tempLimit?: number;
 }

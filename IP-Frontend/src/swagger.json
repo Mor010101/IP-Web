@@ -335,54 +335,6 @@
         }
       }
     },
-    "/api/Alerta/ForPacient{id}": {
-      "get": {
-        "tags": [
-          "Alerta"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Alerta"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Alerta"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Alerta"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/DateVitale": {
       "get": {
         "tags": [
@@ -544,54 +496,6 @@
         "responses": {
           "200": {
             "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/DateVitale/ForPacient{id}": {
-      "get": {
-        "tags": [
-          "DateVitale"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DateVitale"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DateVitale"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DateVitale"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -761,54 +665,6 @@
         }
       }
     },
-    "/api/LimitParam/ForAlerta{id}": {
-      "get": {
-        "tags": [
-          "LimitParam"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/LimitParam"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/LimitParam"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/LimitParam"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/Recomandare": {
       "get": {
         "tags": [
@@ -970,54 +826,6 @@
         "responses": {
           "200": {
             "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Recomandare/ForPacient{id}": {
-      "get": {
-        "tags": [
-          "Recomandare"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Recomandare"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Recomandare"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Recomandare"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -1224,54 +1032,6 @@
           }
         }
       }
-    },
-    "/api/User/ForAdmin{id}": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
@@ -1348,10 +1108,6 @@
               "type": "string"
             },
             "nullable": true
-          },
-          "idPacient": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1375,10 +1131,6 @@
             "items": {
               "type": "string"
             },
-            "nullable": true
-          },
-          "idPacient": {
-            "type": "string",
             "nullable": true
           }
         },
@@ -1406,10 +1158,6 @@
           "ecg": {
             "type": "integer",
             "format": "int32"
-          },
-          "idPacient": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1432,10 +1180,6 @@
           "ecg": {
             "type": "integer",
             "format": "int32"
-          },
-          "idPacient": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1454,10 +1198,6 @@
           "tempLimit": {
             "type": "integer",
             "format": "int32"
-          },
-          "idAlerta": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1472,10 +1212,6 @@
           "tempLimit": {
             "type": "integer",
             "format": "int32"
-          },
-          "idAlerta": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1498,10 +1234,6 @@
           "end": {
             "type": "string",
             "format": "date-time"
-          },
-          "idPacient": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1520,10 +1252,6 @@
           "end": {
             "type": "string",
             "format": "date-time"
-          },
-          "idPacient": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1604,10 +1332,6 @@
           "consultatii_cardio": {
             "type": "string",
             "nullable": true
-          },
-          "idAdmin": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1664,10 +1388,6 @@
             "nullable": true
           },
           "consultatii_cardio": {
-            "type": "string",
-            "nullable": true
-          },
-          "idAdmin": {
             "type": "string",
             "nullable": true
           }
