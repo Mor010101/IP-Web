@@ -3,6 +3,7 @@
 export interface UserDto {
   alergii?: null | string;
   cnp?: null | string;
+  cod_postal?: number;
   consultatii_cardio?: null | string;
   email?: null | string;
   idAdmin?: null | string;

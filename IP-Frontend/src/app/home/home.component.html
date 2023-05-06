@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center">
   <div class="container m-4 rounded bg-light">
     <table class="table table-striped rounded">
-      <thead>
+      <thead class="align-middle">
         <tr>
           <th scope="col">Nume</th>
           <th scope="col">Prenume</th>
@@ -9,18 +9,20 @@
           <th scope="col">Varsta</th>
           <th scope="col">Numar telefon</th>
           <th scope="col">Email</th>
-          <th scope="col"></th>
+          <th scope="col text-left">
+            <button class="btn bg-primary text-light">ADD PACIENT</button>
+          </th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="align-middle">
         <tr *ngFor="let user of users">
-          <td class="align-middle">{{ user.nume }}</td>
-          <td class="align-middle">{{ user.prenume }}</td>
-          <td class="align-middle">{{ user.cnp }}</td>
-          <td class="align-middle">{{ user.varsta }}</td>
-          <td class="align-middle">{{ user.nr_tel }}</td>
-          <td class="align-middle">{{ user.email }}</td>
-          <td class="align-middle">
+          <td>{{ user.nume }}</td>
+          <td>{{ user.prenume }}</td>
+          <td>{{ user.cnp }}</td>
+          <td>{{ user.varsta }}</td>
+          <td>{{ user.nr_tel }}</td>
+          <td>{{ user.email }}</td>
+          <td class="text-right ml-16">
             <button class="btn text-primary" (click)="goToPage(user.id)">VIEW</button>
           </td>
         </tr>

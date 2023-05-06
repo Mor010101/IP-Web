@@ -3,6 +3,7 @@
 export interface User {
   alergii?: null | string;
   cnp?: null | string;
+  cod_postal?: number;
   consultatii_cardio?: null | string;
   email?: null | string;
   id?: null | string;

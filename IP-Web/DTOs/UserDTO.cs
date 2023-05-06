@@ -13,6 +13,7 @@ public class UserDTO
     public string oras { get; set; }
     public string strada { get; set; }
     public int nr_strada { get; set; }
+    public int cod_postal { get; set; }
     public string alergii { get; set; }
     public string istoric_medical { get; set; }
     public string consultatii_cardio { get; set; }

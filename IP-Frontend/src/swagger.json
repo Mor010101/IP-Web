@@ -1597,6 +1597,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "cod_postal": {
+            "type": "integer",
+            "format": "int32"
+          },
           "alergii": {
             "type": "string",
             "nullable": true
@@ -1660,6 +1664,10 @@
             "nullable": true
           },
           "nr_strada": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cod_postal": {
             "type": "integer",
             "format": "int32"
           },
