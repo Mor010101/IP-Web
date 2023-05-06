@@ -1,0 +1,137 @@
+
+<div class="d-flex justify-content-center">
+  <div class="d-flex flex-column">
+  <div class="d-flex mb-2">
+    <h4>
+    {{user.nume}}
+    {{user.prenume}}
+    </h4>
+  </div>
+  <div class="card" style="width: 60rem">
+    <div class="card-header bg-dark text-light">Date Personale</div>
+    <div class="card-body bg-light">
+      <form class="was-validated" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-2">
+            <label>Date</label>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="cnp">CNP</label>
+            <input
+              type="text"
+              inputmode="numeric"
+              pattern="[0-9]{13}"
+              id="cnp"
+              class="form-control"
+              formControlName="cnp"
+              placeholder="4010101234234"
+              required="true"
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="varsta">Varsta</label>
+            <input
+              type="text"
+              class="form-control"
+              id="varsta"
+              pattern="[0-9]{2,}"
+              formControlName="varsta"
+              placeholder="21"
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="telefon">Telefon</label>
+            <input
+              type="text"
+              pattern="[0-9]{10}"
+              class="form-control"
+              id="telefon"
+              placeholder="0745123123"
+              formControlName="telefon"
+            />
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-2"></div>
+          <div class="form-group col-md-3">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="test@example.com"
+              formControlName="email"
+              required="true"
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="profesie">Profesie</label>
+            <input
+              type="text"
+              class="form-control"
+              id="profesie"
+              placeholder="Developer"
+              formControlName="profesie"
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="munca">Loc de munca</label>
+            <input
+              type="text"
+              class="form-control"
+              id="munca"
+              placeholder="Nu conti"
+              formControlName="munca"
+            />
+          </div>
+        </div>
+        <hr>
+
+        <div class="row mt-4">
+          <div class="col-md-2">
+            <label>Adresa</label>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="strada">Strada</label>
+            <input
+              type="text"
+              class="form-control"
+              id="strada"
+              placeholder="Aleea pulii mele"
+              formControlName="strada"
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="numar">Numar</label>
+            <input
+              type="text"
+              pattern="[0-9]{1,}"
+              class="form-control"
+              id="numar"
+              placeholder="69"
+              formControlName="numar"
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="cod_postal">Cod postal</label>
+            <input
+              type="text"
+              pattern="[0-9]{6}"
+              class="form-control"
+              id="cod_postal"
+              placeholder="300011"
+              formControlName="cod_postal"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col"></div>
+          <div class="col-md-2">
+          <button type="submit" class="btn btn-primary mt-4">{{formButtonText}}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+</div>

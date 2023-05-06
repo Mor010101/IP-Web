@@ -38,7 +38,9 @@ builder.Services.AddCors(opt =>
     opt.AddDefaultPolicy(
         policy =>
         {
-            policy.AllowAnyOrigin();
+            policy.AllowAnyOrigin();    //this should never ever be done in a prod branch
+            policy.AllowAnyMethod();
+            policy.AllowAnyHeader();
         });
 });
 
