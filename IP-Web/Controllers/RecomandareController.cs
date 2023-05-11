@@ -1,6 +1,7 @@
 ﻿using IP_Web.DTOs;
 using IP_Web.Models;
 using IP_Web.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IP_Web.Controllers;
@@ -13,8 +14,7 @@ public class RecomandareController: ControllerBase
 
     public RecomandareController(RecomandareService recomandareService) => 
         _recomandareService = recomandareService;
-    
-
+    [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
     [HttpGet]
     public async Task<List<Recomandare>> GetAsync()=>
         await _recomandareService.GetAsync();

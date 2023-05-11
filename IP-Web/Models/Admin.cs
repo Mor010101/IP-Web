@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace IP_Web.Models;
 
@@ -9,12 +10,14 @@ public class Admin
     [BsonRepresentation(BsonType.ObjectId)]
 
     public string? Id { get; set; }
+    [Required]
+    public string Email { get; set; } = string.Empty;
 
-    public string nume { get; set; }
+    public string Nume { get; set; } = string.Empty;
 
-    public string prenume { get; set; }
+    public string Prenume { get; set; } = string.Empty;
 
-    public string cnp { get; set; }
+    public string Cnp { get; set; } = string.Empty;
 
-    public string? idPacienti { get; set; }
+    public string? IdPacienti { get; set; }
 }

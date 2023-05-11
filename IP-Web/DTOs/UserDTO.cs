@@ -1,23 +1,27 @@
-﻿namespace IP_Web.DTOs;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace IP_Web.DTOs;
 
 public class UserDTO
 {
-    public string nume { get; set; }
-    public string prenume { get; set; }
-    public string cnp { get; set; }
-    public int varsta { get; set; }
-    public string nr_tel { get; set; }
-    public string email { get; set; }
-    public string profesie { get; set; }
-    public string loc_de_munca { get; set; }
-    public string oras { get; set; }
-    public string strada { get; set; }
-    public int nr_strada { get; set; }
-    public int cod_postal { get; set; }
-    public string alergii { get; set; }
-    public string istoric_medical { get; set; }
-    public string consultatii_cardio { get; set; }
-    public string? idAdmin { get; set; }
+    [Required] public string Nume { get; set; } = string.Empty;
+    [Required] public string Prenume { get; set; } = string.Empty;
+    [Required] public string Cnp { get; set; } = string.Empty;
+    public int Varsta { get; set; }
+    [Required] public string Telefon { get; set; } = string.Empty;
+    [Required] public string Email { get; set; } = string.Empty;
+    [Required] public string Password { get; set; } = string.Empty;
+    public string Profesie { get; set; } = string.Empty;
+    public string LocDeMunca { get; set; } = string.Empty;
+    public string Oras { get; set; } = string.Empty;
+    public string Strada { get; set; } = string.Empty;
+    public int NrStrada { get; set; }
+    public int CodPostal { get; set; }
+    public string Alergii { get; set; } = string.Empty;
+    public string IstoricMedical { get; set; } = string.Empty;
+    public string ConsulatiiCardio { get; set; } = string.Empty;
+
+    public string? IdAdmin { get; set; }
 
 
 }

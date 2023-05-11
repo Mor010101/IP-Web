@@ -3,6 +3,8 @@ using IP_Web.DTOs;
 using IP_Web.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace IP_Web.Services;
 
@@ -30,12 +32,19 @@ public class UserService
     public async Task CreateAsync(UserDTO userDTO)
     {
         var user = _mapper.Map<User>(userDTO);
+
+        user.Password = HashPassword(user.Password, out var salt);
+        user.Salt = salt;
+ 
         await _userCollection.InsertOneAsync(user);
     }
     public async Task UpdateAsync(string id, UserDTO userDTO)
     {
         var user = _mapper.Map<User>(userDTO);
         user.Id = id;
+
+        user.Password = HashPassword(user.Password, out var salt);
+        user.Salt = salt;
 
         await _userCollection.ReplaceOneAsync(x => x.Id == id, user);
     }
@@ -44,7 +53,7 @@ public class UserService
 
     public async Task<List<UserTableDTO>> GetAllForAdminAsync(string id)
     {
-        var result = await _userCollection.Find(x => x.idAdmin == id).ToListAsync();
+        var result = await _userCollection.Find(x => x.IdAdmin == id).ToListAsync();
         List<UserTableDTO> userTableDTOs = new List<UserTableDTO>();
 
         result.ForEach(x => userTableDTOs.Add(_mapper.Map<UserTableDTO>(x)));
@@ -52,4 +61,16 @@ public class UserService
         return userTableDTOs;
     }
 
+    private string HashPassword(string password, out byte[] salt)
+    {
+        salt = RandomNumberGenerator.GetBytes(64);
+        var hash = Rfc2898DeriveBytes.Pbkdf2(
+            Encoding.UTF8.GetBytes(password),
+            salt,
+            35000,
+            HashAlgorithmName.SHA512,
+            64);
+
+        return Convert.ToHexString(hash);
+    }
 }
