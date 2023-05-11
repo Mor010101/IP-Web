@@ -18,6 +18,7 @@ public class AuthController : ControllerBase
         this.jwtSettings = jwtSettings;
     }
 
+
     [HttpPost]
     public IActionResult GetToken(UserLoginDTO userLogin)
     {
