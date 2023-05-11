@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DatePersonaleComponent } from './user-profile/date-personale/date-personale.component';
+import { DateVitaleComponent } from './user-profile/date-vitale/date-vitale/date-vitale.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DatePersonaleComponent } from './user-profile/date-personale/date-perso
       HomeComponent,
       NavbarComponent,
       UserProfileComponent,
-      DatePersonaleComponent
+      DatePersonaleComponent,
+      DateVitaleComponent,
    ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 ﻿using IP_Web.DTOs;
 using IP_Web.Models;
 using IP_Web.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IP_Web.Controllers;
