@@ -6,6 +6,7 @@ import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
 import { AdminService } from './services/admin.service';
 import { AlertaService } from './services/alerta.service';
+import { AuthService } from './services/auth.service';
 import { DateVitaleService } from './services/date-vitale.service';
 import { LimitParamService } from './services/limit-param.service';
 import { RecomandareService } from './services/recomandare.service';
@@ -22,6 +23,7 @@ import { UserService } from './services/user.service';
   providers: [
     AdminService,
     AlertaService,
+    AuthService,
     DateVitaleService,
     LimitParamService,
     RecomandareService,

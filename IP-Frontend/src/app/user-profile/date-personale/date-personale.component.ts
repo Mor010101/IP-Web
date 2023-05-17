@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { UserDto } from 'src/api/models';
+import { User, UserDto } from 'src/api/models';
 import { UserService } from 'src/api/services';
 
 @Component({
@@ -8,23 +8,24 @@ import { UserService } from 'src/api/services';
   templateUrl: './date-personale.component.html',
   styleUrls: ['./date-personale.component.css'],
 })
+
 export class DatePersonaleComponent implements OnInit {
   @Input() userId: string = '';
 
-  user: UserDto = new Object();
+  user: UserDto = {};
 
   formButtonText = 'Edit';
 
   userForm = this.formBuilder.group({
     cnp: [this.user.cnp, Validators.required],
     varsta: this.user.varsta,
-    telefon: this.user.nr_tel,
+    telefon: this.user.telefon,
     email: this.user.email,
     profesie: this.user.profesie,
-    munca: this.user.loc_de_munca,
+    munca: this.user.locDeMunca,
     strada: this.user.strada,
-    numar: this.user.nr_strada,
-    cod_postal: this.user.cod_postal,
+    numar: this.user.nrStrada,
+    cod_postal: this.user.codPostal,
   });
 
   constructor(
@@ -35,25 +36,25 @@ export class DatePersonaleComponent implements OnInit {
   updateFormValues(user: UserDto) {
     this.userForm.get('cnp')?.setValue(user.cnp);
     this.userForm.get('varsta')?.setValue(user.varsta);
-    this.userForm.get('telefon')?.setValue(user.nr_tel);
+    this.userForm.get('telefon')?.setValue(user.telefon);
     this.userForm.get('email')?.setValue(user.email);
     this.userForm.get('profesie')?.setValue(user.profesie);
-    this.userForm.get('munca')?.setValue(user.loc_de_munca);
+    this.userForm.get('munca')?.setValue(user.locDeMunca);
     this.userForm.get('strada')?.setValue(user.strada);
-    this.userForm.get('numar')?.setValue(user.nr_strada);
-    this.userForm.get('cod_postal')?.setValue(user.cod_postal);
+    this.userForm.get('numar')?.setValue(user.nrStrada);
+    this.userForm.get('cod_postal')?.setValue(user.codPostal);
   }
 
   updateUserValues() {
-    this.user.cnp = this.userForm.get('cnp')?.value;
+    this.user.cnp = this.userForm.get('cnp')?.value as string;
     this.user.varsta = this.userForm.get('varsta')?.value as number; //should perform a null check here
-    this.user.nr_tel = this.userForm.get('telefon')?.value;
-    this.user.email = this.userForm.get('email')?.value;
+    this.user.telefon = this.userForm.get('telefon')?.value as string;
+    this.user.email = this.userForm.get('email')?.value as string;
     this.user.profesie = this.userForm.get('profesie')?.value;
-    this.user.loc_de_munca = this.userForm.get('munca')?.value;
+    this.user.locDeMunca = this.userForm.get('munca')?.value;
     this.user.strada = this.userForm.get('strada')?.value;
-    this.user.nr_strada = this.userForm.get('numar')?.value as number;
-    this.user.cod_postal = this.userForm.get('cod_postal')?.value as number;
+    this.user.nrStrada = this.userForm.get('numar')?.value as number;
+    this.user.codPostal = this.userForm.get('cod_postal')?.value as number;
   }
 
   ngOnInit() {

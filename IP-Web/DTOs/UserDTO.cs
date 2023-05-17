@@ -4,13 +4,13 @@ namespace IP_Web.DTOs;
 
 public class UserDTO
 {
-    [Required] public string Nume { get; set; } = string.Empty;
-    [Required] public string Prenume { get; set; } = string.Empty;
-    [Required] public string Cnp { get; set; } = string.Empty;
+    public string Nume { get; set; } = string.Empty;
+    public string Prenume { get; set; } = string.Empty;
+    public string Cnp { get; set; } = string.Empty;
     public int Varsta { get; set; }
-    [Required] public string Telefon { get; set; } = string.Empty;
-    [Required] public string Email { get; set; } = string.Empty;
-    [Required] public string Password { get; set; } = string.Empty;
+    public string Telefon { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
     public string Profesie { get; set; } = string.Empty;
     public string LocDeMunca { get; set; } = string.Empty;
     public string Oras { get; set; } = string.Empty;

@@ -6,20 +6,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DatePersonaleComponent } from './user-profile/date-personale/date-personale.component';
 import { DateVitaleComponent } from './user-profile/date-vitale/date-vitale/date-vitale.component';
+import { AuthInterceptor } from './core/auth.interceptor';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
       HomeComponent,
       NavbarComponent,
       UserProfileComponent,
       DatePersonaleComponent,
       DateVitaleComponent,
+      LoginComponent
    ],
   imports: [
     BrowserModule,
@@ -29,7 +32,13 @@ import { DateVitaleComponent } from './user-profile/date-vitale/date-vitale/date
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
