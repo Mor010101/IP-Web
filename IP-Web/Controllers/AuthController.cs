@@ -20,7 +20,7 @@ public class AuthController : ControllerBase
 
 
     [HttpPost]
-    public IActionResult GetToken(UserLoginDTO userLogin)
+    public ActionResult<UserTokens> GetToken(UserLoginDTO userLogin)
     {
          try
          {
@@ -45,6 +45,5 @@ public class AuthController : ControllerBase
          {
              throw;
          }
-        return null;
     }
 }

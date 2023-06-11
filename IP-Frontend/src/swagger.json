@@ -383,6 +383,54 @@
         }
       }
     },
+    "/api/Auth": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLoginDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLoginDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLoginDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTokens"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTokens"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTokens"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/DateVitale": {
       "get": {
         "tags": [
@@ -1272,16 +1320,92 @@
           }
         }
       }
+    },
+    "/api/User/IstoricMedical{id}": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "istoricMedical",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "istoricMedical",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
       "Admin": {
+        "required": [
+          "email"
+        ],
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
             "nullable": true
+          },
+          "email": {
+            "type": "string"
           },
           "nume": {
             "type": "string",
@@ -1546,7 +1670,70 @@
         },
         "additionalProperties": false
       },
+      "TimeSpan": {
+        "type": "object",
+        "properties": {
+          "ticks": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "days": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hours": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "milliseconds": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "minutes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "seconds": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalDays": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalHours": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalMilliseconds": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalMinutes": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalSeconds": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
       "User": {
+        "required": [
+          "cnp",
+          "email",
+          "nume",
+          "password",
+          "prenume",
+          "telefon"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -1554,34 +1741,37 @@
             "nullable": true
           },
           "nume": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "prenume": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "cnp": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "varsta": {
             "type": "integer",
             "format": "int32"
           },
-          "nr_tel": {
-            "type": "string",
-            "nullable": true
+          "telefon": {
+            "type": "string"
           },
           "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "salt": {
             "type": "string",
+            "format": "byte",
             "nullable": true
           },
           "profesie": {
             "type": "string",
             "nullable": true
           },
-          "loc_de_munca": {
+          "locDeMunca": {
             "type": "string",
             "nullable": true
           },
@@ -1593,24 +1783,33 @@
             "type": "string",
             "nullable": true
           },
-          "nr_strada": {
+          "nrStrada": {
             "type": "integer",
             "format": "int32"
           },
-          "cod_postal": {
+          "codPostal": {
             "type": "integer",
             "format": "int32"
           },
           "alergii": {
-            "type": "string",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           },
-          "istoric_medical": {
-            "type": "string",
+          "istoricMedical": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           },
-          "consultatii_cardio": {
-            "type": "string",
+          "consulatiiCardio": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           },
           "idAdmin": {
@@ -1639,7 +1838,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "nr_tel": {
+          "telefon": {
             "type": "string",
             "nullable": true
           },
@@ -1647,11 +1846,15 @@
             "type": "string",
             "nullable": true
           },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
           "profesie": {
             "type": "string",
             "nullable": true
           },
-          "loc_de_munca": {
+          "locDeMunca": {
             "type": "string",
             "nullable": true
           },
@@ -1663,29 +1866,54 @@
             "type": "string",
             "nullable": true
           },
-          "nr_strada": {
+          "nrStrada": {
             "type": "integer",
             "format": "int32"
           },
-          "cod_postal": {
+          "codPostal": {
             "type": "integer",
             "format": "int32"
           },
           "alergii": {
-            "type": "string",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           },
-          "istoric_medical": {
-            "type": "string",
+          "istoricMedical": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           },
-          "consultatii_cardio": {
-            "type": "string",
+          "consulatiiCardio": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           },
           "idAdmin": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserLoginDTO": {
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -1713,7 +1941,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "nr_tel": {
+          "nrTel": {
             "type": "string",
             "nullable": true
           },
@@ -1723,7 +1951,53 @@
           }
         },
         "additionalProperties": false
+      },
+      "UserTokens": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "validity": {
+            "$ref": "#/components/schemas/TimeSpan"
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "guidId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "userEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiredTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme.",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
       }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

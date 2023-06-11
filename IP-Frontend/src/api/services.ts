@@ -1,5 +1,6 @@
 export { AdminService } from './services/admin.service';
 export { AlertaService } from './services/alerta.service';
+export { AuthService } from './services/auth.service';
 export { DateVitaleService } from './services/date-vitale.service';
 export { LimitParamService } from './services/limit-param.service';
 export { RecomandareService } from './services/recomandare.service';
