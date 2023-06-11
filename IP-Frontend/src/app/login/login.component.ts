@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
         this.loginForm.get('password')?.value as string
       ).subscribe((res)=> {
         if (res.userId != null){
-          this.router.navigate(['/home', res.userId]);
+          localStorage.setItem('id', res.userId);
+          this.router.navigate(['/home']);
         }else{
           alert('login failed')
         }

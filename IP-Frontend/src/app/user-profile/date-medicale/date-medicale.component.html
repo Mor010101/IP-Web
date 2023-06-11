@@ -1,0 +1,170 @@
+<div class="d-flex justify-content-center mt-4">
+  <div class="d-flex flex-column">
+    <div class="card" style="width: 60rem">
+      <div class="card-header bg-dark text-light">Date Vitale</div>
+      <div class="card-body bg-light">
+        <div class="row">
+          <div class="col-md-4">
+            <h6>Istoric Medical</h6>
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item"
+                *ngFor="let istoric of istoricMedical"
+              >
+              <div class="row">
+                <div class="col-md-9">
+                {{ istoric }}
+                </div>
+                <div class="col-md-1">
+                  <button class="btn btn-outline-dark border-0" type="button" (click)="removeIstoric(istoric)">
+                    <fa-icon [icon]="trash"></fa-icon>
+                  </button>
+                </div>
+              </div>
+              </li>
+              <li class="list-group-item">
+                <form
+                  class="needs-validation"
+                  [formGroup]="istoricForm"
+                  (ngSubmit)="addIstoric()"
+                >
+                  <div class="row">
+                    <div class="col-md-9">
+                      <input
+                        type="text"
+                        required="true"
+                        class="form-control"
+                        id="istoricInput"
+                        placeholder="Introduceti istoric"
+                        formControlName="istoricInput"
+                      />
+                      <div
+                        *ngIf="
+                        istoricForm.invalid &&
+                          (istoricForm.dirty || istoricForm.touched)
+                        "
+                        class="alert alert-danger h-auto"
+                      >
+                        Name is required.
+                    </div>
+                    </div>
+                    <div class="col-md-1">
+                      <button type="submit" class="btn btn-primary">
+                        <fa-icon [icon]="plus"></fa-icon>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h6>Alergii</h6>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" *ngFor="let alergie of alergii">
+                <div class="row">
+                  <div class="col-md-9">
+                  {{ alergie }}
+                  </div>
+                  <div class="col-md-1">
+                    <button class="btn btn-outline-dark border-0" type="button" (click)="removeAlergie(alergie)">
+                      <fa-icon [icon]="trash"></fa-icon>
+                    </button>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <form
+                  class="needs-validation"
+                  [formGroup]="alergiiForm"
+                  (ngSubmit)="addAlergie()"
+                >
+                  <div class="row">
+                    <div class="col-md-9">
+                      <input
+                        type="text"
+                        required="true"
+                        class="form-control"
+                        id="alergieInput"
+                        placeholder="Introduceti alergie"
+                        formControlName="alergieInput"
+                      />
+                      <div
+                        *ngIf="
+                          alergiiForm.invalid &&
+                          (alergiiForm.dirty || alergiiForm.touched)
+                        "
+                        class="alert alert-danger h-auto"
+                      >
+                        Name is required.
+                      </div>
+                    </div>
+                    <div class="col-md-1">
+                      <button type="submit" class="btn btn-primary">
+                        <fa-icon [icon]="plus"></fa-icon>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h6>Consultatii Cardio</h6>
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item"
+                *ngFor="let cardio of consultatiiCardio"
+              >
+              <div class="row">
+                <div class="col-md-9">
+                {{ cardio }}
+                </div>
+                <div class="col-md-1">
+                  <button class="btn btn-outline-dark border-0" type="button" (click)="removeCardio(cardio)">
+                    <fa-icon [icon]="trash"></fa-icon>
+                  </button>
+                </div>
+              </div>
+              </li>
+              <li class="list-group-item">
+                <form
+                  class="needs-validation"
+                  [formGroup]="cardioForm"
+                  (ngSubmit)="addCardio()"
+                >
+                  <div class="row">
+                    <div class="col-md-9">
+                      <input
+                        type="text"
+                        required="true"
+                        class="form-control"
+                        id="cardioInput"
+                        placeholder="Introduceti cardio"
+                        formControlName="cardioInput"
+                      />
+                      <div
+                        *ngIf="
+                          cardioForm.invalid &&
+                          (cardioForm.dirty || cardioForm.touched)
+                        "
+                        class="alert alert-danger h-auto"
+                      >
+                        Name is required.
+                      </div>
+                    </div>
+                    <div class="col-md-1">
+                      <button type="submit" class="btn btn-primary">
+                        <fa-icon [icon]="plus"></fa-icon>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

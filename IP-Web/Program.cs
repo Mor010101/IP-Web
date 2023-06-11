@@ -5,8 +5,51 @@ using IP_Web.Services;
 using MongoDB.Bson.Serialization;
 using AutoMapper;
 using IP_Web.Extensions;
+using MQTTnet.Extensions.ManagedClient;
+using MQTTnet;
+using MQTTnet.Client;
+using MQTTnet.Server;
+using MongoDB.Bson;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var mqttFactory = new MqttFactory();
+
+var mqttClient = mqttFactory.CreateMqttClient();
+
+var options = new MqttClientOptionsBuilder().WithTcpServer("test.mosquitto.org", 1883).WithClientId("careband_consumer").Build();
+
+
+mqttClient.ApplicationMessageReceivedAsync += e =>
+{
+    Console.WriteLine("Received application message.");
+    Console.WriteLine(e.ApplicationMessage.ConvertPayloadToString());
+
+    return Task.CompletedTask;
+};
+
+
+var response = await mqttClient.ConnectAsync(options, CancellationToken.None);
+
+Console.Write("CONNECTION: ");
+Console.WriteLine(response.ToString());
+
+var mqttSubscribeOptions = mqttFactory.CreateSubscribeOptionsBuilder()
+    .WithTopicFilter(
+        f =>
+        {
+            f.WithTopic("EKG4245");
+        })
+    .Build();
+
+var subscribeResult = await mqttClient.SubscribeAsync(mqttSubscribeOptions, CancellationToken.None);
+
+Console.Write("MQTT client subscribed to topic. ");
+Console.WriteLine(subscribeResult.ToString());
+
+await mqttClient.PingAsync(CancellationToken.None);
+
+
 
 //add authorization
 builder.Services.AddJWTTokenServices(builder.Configuration);

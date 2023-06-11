@@ -17,9 +17,9 @@ public class UserDTO
     public string Strada { get; set; } = string.Empty;
     public int NrStrada { get; set; }
     public int CodPostal { get; set; }
-    public string Alergii { get; set; } = string.Empty;
-    public string IstoricMedical { get; set; } = string.Empty;
-    public string ConsulatiiCardio { get; set; } = string.Empty;
+    public List<string> Alergii { get; set; } = new List<string>();
+    public List<string> IstoricMedical { get; set; } = new List<string>();
+    public List<string> ConsulatiiCardio { get; set; } = new List<string>();
 
     public string? IdAdmin { get; set; }
 

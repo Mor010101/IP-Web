@@ -45,6 +45,5 @@ public class AuthController : ControllerBase
          {
              throw;
          }
-        return null;
     }
 }

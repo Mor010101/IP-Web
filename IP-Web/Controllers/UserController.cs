@@ -49,4 +49,13 @@ public class UserController
     public async Task<List<UserTableDTO>> GetAllForAdmin(string id) =>
     await _userService.GetAllForAdminAsync(id);
 
+    [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
+    [HttpPut("/api/User/IstoricMedical{id}")]
+    public async Task UpdateListsAsync(string id, string istoricMedical, string type) =>
+        await _userService.UpdateListsAsync(id,istoricMedical, type);
+
+    [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
+    [HttpDelete("/api/User/IstoricMedical{id}")]
+    public async Task DeleteListsAsync(string id, string istoricMedical, string type) =>
+        await _userService.DeleteListsAsync(id, istoricMedical, type);
 }

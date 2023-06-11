@@ -13,16 +13,19 @@ import { DatePersonaleComponent } from './user-profile/date-personale/date-perso
 import { DateVitaleComponent } from './user-profile/date-vitale/date-vitale/date-vitale.component';
 import { AuthInterceptor } from './core/auth.interceptor';
 import { LoginComponent } from './login/login.component';
+import { DateMedicaleComponent } from './user-profile/date-medicale/date-medicale.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
       HomeComponent,
       NavbarComponent,
       UserProfileComponent,
       DatePersonaleComponent,
       DateVitaleComponent,
-      LoginComponent
+      DateMedicaleComponent,
+      LoginComponent,
    ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [
     {

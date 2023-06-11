@@ -12,8 +12,7 @@ import { UserService } from 'src/api/services';
 export class HomeComponent implements OnInit {
   constructor(
     private userService: UserService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
+    private router: Router
   ) {}
 
   users: UserTableDto[] = [];
@@ -22,9 +21,7 @@ export class HomeComponent implements OnInit {
   state$: Observable<object> = new Observable;
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params => {
-      this.adminId = params['adminId'];
-    });
+    this.adminId = localStorage.getItem('id') as string;
 
     this.userService
       .apiUserForAdminIdGet$Json({ id: this.adminId })

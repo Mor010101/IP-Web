@@ -61,6 +61,49 @@ public class UserService
         return userTableDTOs;
     }
 
+    //this is utterly stupid 
+    public async Task UpdateListsAsync(string id, string istoricMedical, string type)
+    {
+        var user = await _userCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+        switch (type)
+        {
+            case "istoricMedical":
+                user.IstoricMedical.Add(istoricMedical);
+                break;
+
+            case "alergii":
+                user.Alergii.Add(istoricMedical);
+                break;
+
+            case "cardio":
+                user.ConsulatiiCardio.Add(istoricMedical);
+                break;
+        }
+        
+        await _userCollection.ReplaceOneAsync(x => x.Id == id, user);
+    }
+
+    public async Task DeleteListsAsync(string id, string istoricMedical, string type)
+    {
+        var user = await _userCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+        switch (type)
+        {
+            case "istoricMedical":
+                user.IstoricMedical.Remove(istoricMedical);
+                break;
+
+            case "alergii":
+                user.Alergii.Remove(istoricMedical);
+                break;
+
+            case "cardio":
+                user.ConsulatiiCardio.Remove(istoricMedical);
+                break;
+        }
+
+        await _userCollection.ReplaceOneAsync(x => x.Id == id, user);
+    }
+
     private string HashPassword(string password, out byte[] salt)
     {
         salt = RandomNumberGenerator.GetBytes(64);

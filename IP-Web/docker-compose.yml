@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  api:
+        build: .
+        ports:
+            - "8080:80"
+        depends_on:
+            - mongo1
+        volumes:
+            - ${HOME}/.microsoft/usersecrets/:/root/.microsoft/usersecrets
+            - ${HOME}/.aspnet/https:/root/.aspnet/https/
+        links:
+          - mongo1

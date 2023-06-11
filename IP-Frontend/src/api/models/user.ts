@@ -1,14 +1,14 @@
 /* tslint:disable */
 /* eslint-disable */
 export interface User {
-  alergii?: null | string;
+  alergii?: null | Array<string>;
   cnp: string;
   codPostal?: number;
-  consulatiiCardio?: null | string;
+  consulatiiCardio?: null | Array<string>;
   email: string;
   id?: null | string;
   idAdmin?: null | string;
-  istoricMedical?: null | string;
+  istoricMedical?: null | Array<string>;
   locDeMunca?: null | string;
   nrStrada?: number;
   nume: string;

@@ -1,13 +1,13 @@
 /* tslint:disable */
 /* eslint-disable */
 export interface UserDto {
-  alergii?: null | string;
+  alergii?: null | Array<string>;
   cnp?: null | string;
   codPostal?: number;
-  consulatiiCardio?: null | string;
+  consulatiiCardio?: null | Array<string>;
   email?: null | string;
   idAdmin?: null | string;
-  istoricMedical?: null | string;
+  istoricMedical?: null | Array<string>;
   locDeMunca?: null | string;
   nrStrada?: number;
   nume?: null | string;
