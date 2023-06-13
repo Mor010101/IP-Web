@@ -4,8 +4,30 @@
       <div class="card-header bg-dark text-light">Date Vitale</div>
       <div class="card-body bg-light">
         <div class="chart-container">
-          <canvas id="MyChart"> {{chart}} </canvas>
+          <canvas id="MyChart"> {{ chart }} </canvas>
         </div>
+        <br />
+        <hr />
+        <div>
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+              <label for="bpmText">BPM</label>
+              <input type="text" id="bpmText" class="form-control" value="{{bpm}}" disabled="true"/>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+              <label for="tempText">Temperatura</label>
+              <input type="text" id="tempText" class="form-control" value="{{temp}}" disabled="true"/>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+              <label for="tempText">Umiditate</label>
+              <input type="text" id="tempText" class="form-control" value="{{umiditate}}" disabled="true"/>
+            </div>
+          </div>
+        </div>
+        <br>
       </div>
     </div>
   </div>

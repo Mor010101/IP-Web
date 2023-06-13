@@ -15,6 +15,13 @@ import { AuthInterceptor } from './core/auth.interceptor';
 import { LoginComponent } from './login/login.component';
 import { DateMedicaleComponent } from './user-profile/date-medicale/date-medicale.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
+
+export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+  hostname: 'test.mosquitto.org',
+  port: 8081,
+  path: '/mqtt'
+};
 
 @NgModule({
   declarations: [
