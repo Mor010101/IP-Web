@@ -17,11 +17,11 @@ export class DateVitaleComponent implements OnInit {
   ekgStringArray: string[] = [];
   ekgValues: Array<number> = Array(124).fill(1);
 
-  bpmValue = document.getElementById("bpmText");
-  tempValue = document.getElementById("tempText");
+  bpmValue = document.getElementById('bpmText');
+  tempValue = document.getElementById('tempText');
   bpm = '2';
-  temp= '2';
-  umiditate='2';
+  temp = '2';
+  umiditate = '2';
 
   chart = new Chart('MyChart', {
     type: 'line', //this denotes tha type of chart
@@ -57,18 +57,18 @@ export class DateVitaleComponent implements OnInit {
           backgroundColor: 'primary',
         },
       ],
-
     };
     this.chart.update();
   };
 
-  updateValues(bpm: string, temp: string, umiditate: string){
-    this.bpm = bpm;
-    this.temp = temp;
-    this.umiditate = umiditate
+  updateValues(bpm: string, temp: string, umiditate: string) {
     this.bpmValue?.setAttribute('value', bpm);
-
-    this.tempValue?.setAttribute('value', temp);
+    if (umiditate != null && temp != null) {
+      this.bpm = bpm;
+      this.temp = temp;
+      this.umiditate = umiditate;
+      this.tempValue?.setAttribute('value', temp);
+    }
   }
 
   createChart() {
@@ -87,9 +87,9 @@ export class DateVitaleComponent implements OnInit {
       },
       options: {
         aspectRatio: 2.5,
-        animation:{
-          duration: 0
-        }
+        animation: {
+          duration: 0,
+        },
       },
     });
   }
@@ -112,7 +112,11 @@ export class DateVitaleComponent implements OnInit {
       console.log(JSON.parse(message.toString()));
       let deserialized = JSON.parse(message.toString());
       this.updateChart(deserialized['Ekg']);
-      this.updateValues(deserialized["Bpm"], deserialized["Temp"], deserialized["Umiditate"])
+      this.updateValues(
+        deserialized['Bpm'],
+        deserialized['Temp'],
+        deserialized['Umiditate']
+      );
     });
   }
 }
